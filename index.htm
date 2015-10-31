@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Birdie Slideshow</title>
+		<style type="text/css">
+			body, html {
+				background:url('preloader.gif') no-repeat center center;
+				background-color:#222;
+				background-size:auto;
+				height:100%;
+				margin:0;
+				padding:0;
+			}
+			div {
+				height:100%;
+				margin:0;
+				padding:0;
+			}
+		</style>
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function loadBackground() {
+				$.ajax({
+					url : 'getimage.php',
+					success : function(filename) {
+						$('div').css('background', 'url('+filename+') no-repeat center center fixed');
+						$('div').css('background-size', 'contain');
+					}
+				});
+			}
+			setInterval(loadBackground, 8000);
+		</script>
+		<div></div>
+	</body>
+</html>
